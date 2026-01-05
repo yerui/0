@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工作文件整理 - 填写</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <h1>工作文件整理 - 填写记录</h1>
+  <!-- Formspree表单：替换成你的Formspree邮箱 -->
+  <form action="https://formspree.io/f/你的FormspreeID" method="POST" class="form-container">
+    <div class="form-group">
+      <label for="date">日期</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="file-type">文件类型</label>
+      <select id="file-type" name="file-type" required>
+        <option value="">请选择</option>
+        <option value="报告">报告</option>
+        <option value="方案">方案</option>
+        <option value="政策文件">政策文件</option>
+        <option value="会议纪要">会议纪要</option>
+        <option value="其他">其他</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="read-file">已看文件（名称+版本）</label>
+      <input type="text" id="read-file" name="read-file" placeholder="例如：2026年度项目规划V2.pdf" required>
+    </div>
+    <div class="form-group">
+      <label for="key-point">核心知识点/摘要</label>
+      <textarea id="key-point" name="key-point" placeholder="1-3句提炼核心内容" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="unread-file">未看文件（名称+版本）</label>
+      <input type="text" id="unread-file" name="unread-file" placeholder="例如：竞品分析报告V1.docx">
+    </div>
+    <div class="form-group">
+      <label for="todo">待办事项</label>
+      <input type="text" id="todo" name="todo" placeholder="例如：明日上午优先阅读，提炼竞品核心优势">
+    </div>
+    <div class="form-group">
+      <label for="storage">存储位置</label>
+      <input type="text" id="storage" name="storage" placeholder="例如：公司内网-项目文件夹-2026规划" required>
+    </div>
+    <div class="form-group">
+      <label for="remark">备注</label>
+      <textarea id="remark" name="remark" placeholder="关联项目、需重点复习等"></textarea>
+    </div>
+    <button type="submit" class="btn">提交记录</button>
+  </form>
+  <!-- 查看表格的链接 -->
+  <a href="work-table.html" class="back-link">查看所有工作文件记录</a>
+  <!-- 返回首页 -->
+  <a href="../index.html" class="back-link">返回首页</a>
+
+  <!-- 提交成功提示（简单JS） -->
+  <script>
+    // 检测表单提交成功
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      alert('记录提交成功！');
+      // 清空表单（可选）
+      document.querySelector('form').reset();
+    }
+  </script>
+</body>
+</html>
